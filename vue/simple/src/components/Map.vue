@@ -7,6 +7,7 @@
 // TODO: change to `import carto from '@carto/carto-vl'` for next releases
 import * as carto from '@carto/carto-vl'
 import mapboxgl from '@carto/mapbox-gl'
+import '@carto/mapbox-gl/dist/mapbox-gl.css'
 
 export default {
   name: 'Map',
