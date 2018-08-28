@@ -3,8 +3,9 @@
 </template>
 
 <script>
-const carto = require('@carto/carto-vl')
-// import carto from '@carto/carto-vl'
+
+// TODO: change to `import carto from '@carto/carto-vl'` for next releases
+import * as carto from '@carto/carto-vl'
 import mapboxgl from '@carto/mapbox-gl'
 
 export default {
