@@ -8,6 +8,18 @@ import * as carto from '@carto/carto-vl'
 import mapboxgl from '@carto/mapbox-gl'
 import '@carto/mapbox-gl/dist/mapbox-gl.css'
 
+const basemaps = {
+  'voyager': 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
+  'positron': 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+  'dark-matter': 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
+}
+
+const datasets = {
+  'points': 'ne_10m_populated_places_simple',
+  'lines': 'ne_50m_rivers_lake_centerlines',
+  'polygons': 'world_borders'
+}
+
 export default {
   name: 'Map',
   props: {
@@ -28,12 +40,6 @@ export default {
   },
   methods: {
     createMap: function () {
-      const basemaps = {
-        'voyager': 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
-        'positron': 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-        'dark-matter': 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
-      }
-
       return new mapboxgl.Map({
         container: 'map',
         style: basemaps[this.basemap],
@@ -42,12 +48,6 @@ export default {
       })
     },
     createLayer: function () {
-      const datasets = {
-        'points': 'ne_10m_populated_places_simple',
-        'lines': 'ne_50m_rivers_lake_centerlines',
-        'polygons': 'world_borders'
-      }
-
       const source = new carto.source.Dataset(datasets[this.geom], {
         user: 'cartovl',
         apiKey: 'default_public'
